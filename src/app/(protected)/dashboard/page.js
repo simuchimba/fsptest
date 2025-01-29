@@ -82,6 +82,7 @@ export default function Dashboard() {
             width={998}
             height={622}
             className="translate-x-10"
+            alt="think"
           />
         </div>
       </div>

@@ -109,7 +109,7 @@ export default function Knowledge() {
       <p className='text-2xl font-semibold text-center text-[#EA5D7A] mt-10'>
         Understand your body
       </p>
-      <Image src='/assets/knowledge/knowledge.jpg' width={250} height={250} />
+      <Image src='/assets/knowledge/knowledge.jpg' alt="knowledge" width={250} height={250} />
       {knowledgeSections.map((section) => (
         <AccordionSection key={section.title} {...section} />
       ))}

@@ -3,13 +3,12 @@
 import NavBar from "@/components/NavBar";
 import { SessionProvider } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 export default function ProtectedContainer({ children }) {
   const pathname = usePathname();
-  const [active, setActive] = useState(getActive());
 
-  function getActive() {
+  const getActive = useCallback(() => {
     switch (pathname) {
       case "/dashboard":
         return 0;
@@ -22,11 +21,14 @@ export default function ProtectedContainer({ children }) {
       default:
         return -1;
     }
-  }
+  }, [pathname]);
+
+  const [active, setActive] = useState(getActive());
 
   useEffect(() => {
     setActive(getActive());
-  }, [pathname]);
+  }, [getActive]);
+
   return (
     <SessionProvider>
       <div className="flex flex-col w-full relative p-2 pb-20">

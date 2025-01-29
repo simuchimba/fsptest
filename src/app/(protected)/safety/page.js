@@ -2,7 +2,7 @@
 import Greeting from '@/components/dashboard/Greeting';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { BsHospital } from 'react-icons/bs';
 import { FaLocationArrow } from 'react-icons/fa';
 import { GrUserPolice } from 'react-icons/gr';
@@ -24,18 +24,18 @@ const Safety = () => {
       let long = position.coords.longitude;
       localStorage.setItem('sakhi_lat', lat);
       localStorage.setItem('sakhi_long', long);
-      localStorage.setItem('sakhiLocationPermission', true);
+      localStorage.setItem('sakhiLocationPermission', 'true');
     });
   };
 
-  const checkLocationPermission = () => {
+  const checkLocationPermission = useCallback(() => {
     if (localStorage.getItem('sakhiLocationPermission') === 'true') {
       setIsLocationPermissionGranted(true);
     } else {
       alert('We need Location Permission to work, Please allow us');
       getCurrentUserLocation();
     }
-  };
+  }, []);
 
   useEffect(() => {
     if ('geolocation' in navigator) {
@@ -43,7 +43,7 @@ const Safety = () => {
     } else {
       checkLocationPermission();
     }
-  }, []);
+  }, [checkLocationPermission]);
 
   const openNearby = (x) => {
     window.open(
@@ -88,10 +88,7 @@ const Safety = () => {
           </div>
           <FaLocationArrow className='text-lg' />
         </button>
-
         <hr />
-      
-       
       </div>
     </div>
   );

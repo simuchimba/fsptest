@@ -8,14 +8,22 @@ import { MdOutlineSos } from "react-icons/md";
 import { IoIosWarning } from "react-icons/io";
 import { Button } from "./ui/button";
 import { toast } from "./ui/Toast";
+import Image from "next/image";  // Import next/image
 
 export default function HeaderNav() {
   return (
     <SessionProvider>
       <nav className="p-2 sticky top-0 z-30 bg-white h-16 flex items-center justify-between">
-      <p className={`flex text-4xl gap-1 items-center text-pink-400`}>
-  <img src="/assets/logo.png" alt="Logo" className="w-12 h-12" />
-</p>
+        <p className={`flex text-4xl gap-1 items-center text-pink-400`}>
+          {/* Use <Image /> instead of <img /> */}
+          <Image 
+            src="/assets/logo.png" 
+            alt="Logo" 
+            className="w-12 h-12" 
+            width={48} // Set appropriate width
+            height={48} // Set appropriate height
+          />
+        </p>
 
         <div className="flex justify-center items-center gap-4">
           <Button
@@ -39,35 +47,16 @@ function UserComponent() {
     <>
       {data?.user?.image && (
         <Link href="/profile">
-          <img
+          {/* Use <Image /> instead of <img /> */}
+          <Image
             src={data.user.image}
-            rel="noreferrer"
             alt=""
             className="h-11 w-11 bg-rose-300 rounded-full ring-2 ring-pink-400"
+            width={44} // Set appropriate width
+            height={44} // Set appropriate height
           />
         </Link>
       )}
     </>
   );
 }
-
-// // Not available in newer browsers
-// async function makeCall() {
-//   try {
-//     // Request permission to use telephony features
-//     await navigator.permissions
-//       .query({ name: "telephony" })
-//       .then((permissionStatus) => {
-//         if (permissionStatus.state === "granted") {
-//           // If permission is granted, make the call
-//           const phoneNumber = "100";
-//           navigator.telephony.dial(phoneNumber);
-//         } else {
-//           // Permission not granted
-//           toast.error("Telephony permission denied.");
-//         }
-//       });
-//   } catch (error) {
-//     console.error("Error making the call:", error);
-//   }
-// }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const MenstrualHealthAwareness = () => {
   return (
@@ -12,7 +13,7 @@ const MenstrualHealthAwareness = () => {
         Menstrual health is an important aspect of overall well-being for women, yet many face challenges due to various reproductive health conditions such as Polycystic Ovary Syndrome (PCOS) and Endometriosis. These conditions can significantly impact menstrual cycles, causing pain, irregularities, and emotional distress. In this article, we explore what PCOS and Endometriosis are, their symptoms, and how to manage them effectively.
       </p>
       
-      <img src="/assets/women.jpg" loading="lazy" className="my-2" alt="women" />
+      <Image src="/assets/women.jpg" width={600} height={400} loading="lazy" className="my-2" alt="women" />
 
       <div className="font-bold mt-8 text-xl mb-2">Polycystic Ovary Syndrome</div>
       <p>

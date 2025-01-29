@@ -57,7 +57,7 @@ export default function Register() {
 
   return (
     <div className="flex flex-col items-center gap-10 mt-10 relative">
-      <p className="text-3xl font-semibold">Let's create your account</p>
+      <p className="text-3xl font-semibold">Let&apos;s create your account</p>
       <div>
         <Image src="/assets/login/girl.png" width={300} height={300} alt="Register" />
       </div>
