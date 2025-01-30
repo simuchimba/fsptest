@@ -15,49 +15,7 @@ export default function Login() {
       {/* Login Form */}
       <h1 style={{ fontFamily: "Arial, sans-serif", fontSize: "32px" }}>#takeyourspot</h1>
 
-      <form className="w-full max-w-sm flex flex-col gap-4">
-        {/* Email Field */}
-        <div className="w-full flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-pink-500">
-          <div className="px-3 text-gray-500">
-            <i className="fas fa-user"></i> {/* User icon */}
-          </div>
-          <input
-            type="text"
-            placeholder="Email or Phone"
-            className="w-full px-4 py-2 focus:outline-none"
-          />
-        </div>
-
-        {/* Password Field */}
-        <div className="w-full flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-pink-500">
-          <div className="px-3 text-gray-500">
-            <i className="fas fa-lock"></i> {/* Lock icon */}
-          </div>
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full px-4 py-2 focus:outline-none"
-          />
-        </div>
-
-        {/* Login Button */}
-        <button
-          type="submit"
-          className="w-full px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition duration-150"
-        >
-          Login
-        </button>
-
-        {/* Create Account Button */}
-        <a href="/create" className="w-full">
-          <button
-            type="button"
-            className="w-full px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition duration-150"
-          >
-            Create Account
-          </button>
-        </a>
-      </form>
+    
 
       {/* Google Login Button */}
       <button
